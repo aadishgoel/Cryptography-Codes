@@ -16,19 +16,8 @@ def mul(a,b,ir):
         ans  = bin(int(ir,2)^int(m,2))[2:]               #Reducing One Degree  
     return(ans)
 
-add=[]
-for i in range(2**n):
-    temp=[]
-    for j in range(2**n):
-        temp.append(int(bin(i)[2:])^int(bin(j)[2:]))
-    add.append(temp)
-    
-mult=[]
-for i in range(2**n):
-    temp=[]
-    for j in range(2**n):
-        temp.append(mul(i,j,ir))
-    mult.append(temp)
+add=[[int(bin(i)[2:])^int(bin(j)[2:]) for j in range(2**n)] for i in range(2**n)]
+mult=[[mul(i,j,ir) for j in range(2**n)] for i in range(2**n)]
 
 print('Addition Table')
 for line in add:
